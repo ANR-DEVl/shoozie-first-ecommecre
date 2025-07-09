@@ -117,6 +117,8 @@ nav{
   height: 50%;
   background-color: #8c6239;
   border-radius: 15px;
+  overflow: hidden;
+  display: flex;
 }
 .profile button{
   width: 50%;
@@ -132,6 +134,7 @@ nav{
 }
 
 .probl{
+  font-size: 18px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background-color: #668c3f;
@@ -140,6 +143,8 @@ nav{
   
 }
 .probr{
+  font-size: 18px;
+
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #668c3f;
@@ -371,7 +376,8 @@ p{
 .show ,.topic1,.topic2,.topic3,.topic4 {
   border-radius: 15px;
   overflow: hidden;
-  background-color: #7a450062;
+  /* background-color: #7a450062; */
+  background-color: #86694e;
 }
 .show  {
   grid-column: 1/3;
@@ -414,16 +420,29 @@ p{
 
 
 .topic1{
+  padding: 5px;
+
   grid-column: 3/4;
   grid-row: 1/2;
   display: flex;
   justify-content: space-between;
 }
+.topic2{
+  padding: 5px;
+}
+.topic3{
+  padding: 5px;
+}
 .topic1 img {
   width: 50%;
+  border-radius: 15px;
 }
 .topic2 img {
   width: 50%;
+  border-radius: 15px;
+}
+.topic3 img{
+    border-radius: 15px;
 }
 .t1p ,.t2p {
   display: flex;
@@ -601,4 +620,135 @@ h2{
   font-size: 40px;
     margin-bottom: 30px;
     color: #3e3e3e !important;
+}
+
+
+.modalblur{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(92, 85, 70, 0.377);
+}
+
+.modal{
+  position: fixed;
+  width: 26%;
+  height: 70%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(233, 0, 0); */
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #eedbb7;
+  border:  solid 2px  #d4ae68;
+  padding: 20px;
+
+}
+
+.close{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.close:hover{
+  cursor: pointer;
+}
+
+
+
+.log , .sign {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+
+.log h3 ,.sign h3{
+  font-size: 40px;
+  color: #00a545;
+  
+}
+
+.log form ,.sign form {
+  margin-top: 30px;
+  width: 70%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: #fff; */
+  gap: 20px;
+}
+
+.modal input{
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #eedbb7;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  border: none;
+  border-bottom: solid 1px #00a545;
+  font-size: 20px;
+  outline: none;
+
+} 
+
+.passcase{
+  width: 100%;
+}
+
+.passcase p{
+  font-size: 14px;
+}
+.passcase span{
+  color:#00682b;
+}
+.passcase span:hover{
+  cursor: pointer;
+  color:#24a55a;
+}
+
+
+
+.log form button,.sign form button {
+  width: 50%;
+  font-size: 22px;
+  padding: 10px;
+  border: none;
+  background-color: #19d367;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.log form button:hover ,.sign form button:hover{
+  background-color: #0fb658;
+}
+
+
+form .create{
+  margin-top: auto;
+  color: gray;
+}
+.create span{
+
+  color:#00682b;
+}
+.create span:hover{
+  cursor: pointer;
+  color:#24a55a;
+}
+
+
+.sign input{
+  margin-top: 10px;
 }

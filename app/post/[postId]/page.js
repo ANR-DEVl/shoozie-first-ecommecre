@@ -6,13 +6,17 @@ import Similair from "../../components/Similair"
 
 import Postcontent from "./Postcontent"
 
-import { products } from "@/app/context/productsdata"
+// import { products } from "@/app/context/productsdata"
 
 
 
 import styles from "../mainproduct.module.css"
 
 export default async function Postpage(props) {
+
+
+    const res = await fetch('http://localhost:3000/api/products')
+    const products = await res.json()
 
 
 

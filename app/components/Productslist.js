@@ -1,6 +1,7 @@
 'use client';
 
-import { useProducts } from "../context/productList";
+// import { useProducts } from "../context/productList";
+import { useEffect ,useState} from "react";
 
 import Productcard from "./Productcard";
 
@@ -12,7 +13,22 @@ export default function Productslist(props) {
 
     const filterselect = props.filterselect;
 
-    const products = useProducts();
+    const [products,setproducts] = useState([]);
+
+    useEffect(()=>{
+
+        async function fetchingdata() {
+            const res = await fetch('/api/products')
+            const data = await res.json()
+            setproducts(data)
+        }
+        fetchingdata();
+
+    },[])
+
+
+
+
 
 
 

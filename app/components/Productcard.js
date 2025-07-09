@@ -2,7 +2,7 @@ import styles from "../post/mainproduct.module.css";
 import StarIcon from '@mui/icons-material/Star';
 
 import Link from "next/link";
-
+import Image from "next/image";
 
 export default function Productcard({title, price, shortdisc, rate, img,proId}) {
 
@@ -15,7 +15,7 @@ export default function Productcard({title, price, shortdisc, rate, img,proId}) 
             <div className={styles.fixedbtn}>
                 <button className={styles['added']}>Add to Cart</button>
             </div>
-            <img src={`/photos/${img}1.jpg`} alt="ppp" />
+            <img  src={`/photos/${img}1.jpg`} alt="ppp" />
             <h4>{title}</h4>
             <hr />
             <p className={styles.disc}>{shortdisc}</p>

@@ -1,10 +1,11 @@
 import Button from '@mui/material/Button';
+import Link from 'next/link';
 
 
 export default function Articles(){
 
     return(
-                    <div className="articles">
+            <div className="articles">
                 <div className="show"><video autoPlay muted loop playsInline>
                     <source src='/vids/show.mp4' alt='oooo'/>
                     </video>
@@ -13,18 +14,21 @@ export default function Articles(){
                         <p>this piece is really classy and poopular with teens
                             it will give you a new look
                         </p>
-                        <Button style={{backgroundColor:'#27d87a'}} variant="contained" disableElevation>
-                            Buy Now
-                        </Button></div>
-                        </div>
+                        <Link  href="/post/c41dbed7-4a7c-4fd4-b073-67ae30ff72cf" >
+                            <Button style={{backgroundColor:'#27d87a'}} variant="contained" disableElevation>
+                                Buy Now
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
                         
 
 
                     <div className="topic1">
                         <div className="t1p">
-                            <p>Adidas Air Max</p>
+                            <p>Converce Air Max</p>
                         </div>
-                        <img src="/photos/adidas4.jpg" alt="" />
+                        <img src="/photos/starshoe3.jpg" alt="" />
                     </div>
                     <div className="topic2">
                         <img src="/photos/colorshoe2.jpg" alt="" />
@@ -41,9 +45,12 @@ export default function Articles(){
                         <div className="t4c">
                             <img src="/photos/starshoe2.jpg" alt="" />
                             <div className="t4p"><p>Star Sniekers </p>
+                            <Link  href="/post/53c1743d-bdf2-4a26-a66d-c94ce93230b5" >
                             <Button style={{backgroundColor:'#27d87a'}} variant="contained" disableElevation>
                                 Buy Now
                             </Button>
+                            </Link>
+
                             </div>
                         </div>
                     </div>

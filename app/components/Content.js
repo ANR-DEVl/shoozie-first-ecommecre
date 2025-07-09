@@ -2,7 +2,7 @@
 import Button from '@mui/material/Button';
 
 import Articles from './Articles';
-
+import Link from 'next/link';
 
 
 
@@ -16,24 +16,24 @@ export default function Content(){
             <div className="categories">
                 <div className="cat">
                     <img src="/photos/cats/casual.jpg" alt="" />
-                    <div className="hovertitle"><p>casual style</p></div>
+                    <Link style={{textDecoration:'none'}} href={'/products'} className="hovertitle"><p>casual style</p></Link>
                 </div>
                 
                 <div className="cat">
                     <img src="/photos/cats/classic.jpg" alt="" />
-                    <div className="hovertitle"><p>classic style</p></div>
+                    <Link style={{textDecoration:'none'}} href={'/products'} className="hovertitle"><p>classic style</p></Link>
                 </div>                
                 <div className="cat">
                     <img src="/photos/cats/party.jpg" alt="" />
-                    <div className="hovertitle"><p>party style</p></div>
+                    <Link style={{textDecoration:'none'}} href={'/products'}  className="hovertitle"><p>party style</p></Link>
                 </div>                
                 <div className="cat">
                     <img src="/photos/cats/winter.jpg" alt="" />
-                    <div className="hovertitle"><p>winter style</p></div>
+                    <Link style={{textDecoration:'none'}} href={'/products'}  className="hovertitle"><p>winter style</p></Link>
                 </div>                
                 <div className="cat">
                     <img src="/photos/cats/sport.jpg" alt="" />
-                    <div className="hovertitle"><p>sport style</p></div>
+                    <Link style={{textDecoration:'none'}} href={'/products'}  className="hovertitle"><p>sport style</p></Link>
                 </div>
             </div>
 

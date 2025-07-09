@@ -9,11 +9,15 @@ import { useState ,useEffect} from 'react';
 
 import Productslist from '../components/Productslist';
 
+import { useSearchParams } from 'next/navigation';
+
 
 
 export default function ProductsPage() {
 
+  const searchparams = useSearchParams()
 
+  const homesearch = searchparams.get('homesearch');
 
   const mysizes = ['s37','s38','39','s40','s41','s42'];
 
@@ -45,6 +49,12 @@ export default function ProductsPage() {
       size:['all'],
       searchtxt : ''
     })
+
+
+    useEffect(()=>{
+      setsearch(homesearch??'')
+
+    },[homesearch])
 
 
 useEffect(()=>{
@@ -94,6 +104,19 @@ useEffect(()=>{
         searchtxt: search,
       })
     }
+
+    useEffect(()=>{
+            setfilterselect((pr)=>{
+              return {...pr,searchtxt:homesearch}
+    })
+
+    },[homesearch])
+
+
+    useEffect(()=>{
+      applyfilter()
+    },[])
+
 
 
 
