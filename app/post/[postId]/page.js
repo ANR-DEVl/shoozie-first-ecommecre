@@ -26,10 +26,9 @@ export default async function Postpage(props) {
 
 
 const res = await fetch(`${origin}/api/products`, {
-  headers: {
-    
-  next: { revalidate: 0 }, 
-}})
+    next: { revalidate: 0 }  
+})
+
     const products = await res.json()
 
 
