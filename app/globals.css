@@ -794,6 +794,9 @@ form .create{
   .navl{
     display: none;
   }
+  .profile{
+    width: 16%;
+  }
   .profile button{
     width: 100%;
   }

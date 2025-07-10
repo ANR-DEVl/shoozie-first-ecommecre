@@ -54,10 +54,6 @@ export default function Productswraper(){
     })
 
 
-    useEffect(()=>{
-      setsearch(homesearch)
-
-    },[homesearch])
 
 
 
@@ -65,7 +61,17 @@ export default function Productswraper(){
 
 
 
-    function applyfilter(){
+
+    function applyfilter(mysearch){
+
+      // if(type==='home'){
+      // if(homesearch){
+      //   console.log('+++++++++++++++++')
+      //   setsearch(homesearch)
+      // }
+      // }
+
+
 
       let selectedcategories = categories.all ? ['all']: Object.keys(categories).filter((e)=>{
           return categories[e]==true
@@ -96,26 +102,27 @@ export default function Productswraper(){
 
 
 
-
+      console.log('=======================')
       setfilterselect({
         categories : selectedcategories,
         pricerange : selectedprice,
         brand :selectedbrand,
         size :selectedsize,
-        searchtxt: homesearch ||search,
+        searchtxt: mysearch,
       })
     }
 
+    // useEffect(()=>{
+    //         setfilterselect((pr)=>{
+    //           return {...pr,searchtxt:homesearch??search}
+    // })
+
+    // },[homesearch])
+
+
     useEffect(()=>{
-            setfilterselect((pr)=>{
-              return {...pr,searchtxt:homesearch}
-    })
-
-    },[homesearch])
-
-
-    useEffect(()=>{
-      applyfilter()
+      setsearch(homesearch)
+      applyfilter(homesearch)
     },[homesearch])
 
 
@@ -411,7 +418,7 @@ export default function Productswraper(){
 
 
   <div className={styles.btncontainer}>
-  <button type='button' onClick={applyfilter}>Apply</button>
+  <button type='button' onClick={()=>{applyfilter(search)}}>Apply</button>
 
   </div>
 
