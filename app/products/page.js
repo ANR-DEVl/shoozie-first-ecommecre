@@ -1,7 +1,7 @@
 'use client';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 import styles from './pro.module.css'
 
@@ -15,9 +15,11 @@ import { useSearchParams } from 'next/navigation';
 
 export default function ProductsPage() {
 
+  const [showfilter,setshowfilter] = useState(false)
+
   const searchparams = useSearchParams()
 
-  const homesearch = searchparams.get('homesearch');
+  const homesearch = searchparams.get('homesearch')??'';
 
   const mysizes = ['s37','s38','39','s40','s41','s42'];
 
@@ -52,14 +54,12 @@ export default function ProductsPage() {
 
 
     useEffect(()=>{
-      setsearch(homesearch??'')
+      setsearch(homesearch)
 
     },[homesearch])
 
 
-useEffect(()=>{
-  console.log(filterselect);
-},[filterselect])
+
 
 
 
@@ -101,7 +101,7 @@ useEffect(()=>{
         pricerange : selectedprice,
         brand :selectedbrand,
         size :selectedsize,
-        searchtxt: search,
+        searchtxt: homesearch ||search,
       })
     }
 
@@ -115,7 +115,7 @@ useEffect(()=>{
 
     useEffect(()=>{
       applyfilter()
-    },[])
+    },[homesearch])
 
 
 
@@ -123,7 +123,10 @@ useEffect(()=>{
 
     return (
         <div className={styles.productsPage}>
-            <div className={styles.filterbar}>
+          <div onClick={()=>{setshowfilter((pr)=>!pr)}} className={`${styles.filtertoggle} ${showfilter?styles.toggleon:''}`}>
+            <FilterListIcon style={{transform:"translate(2px,2px)"}}/>
+          </div>
+            <div className={`${styles.filterbar} ${showfilter? styles.filteron:''}`}>
                 <div className={styles.selectes}>
                     <div className={styles.filtersearch}>
   <input

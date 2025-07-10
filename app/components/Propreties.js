@@ -27,6 +27,7 @@ export default function Propreties(props) {
             <div className={styles.opts}>
                 <Button 
                     sx={{
+                        minWidth:'100px',
                         padding: '10px',
                         backgroundColor: '#19d367',
                         color: '#fff',
@@ -40,6 +41,7 @@ export default function Propreties(props) {
 
                 <Button 
                     sx={{
+                        minWidth:'100px',
                         padding: '10px',
                         backgroundColor: '#19d367',
                         color: '#fff',

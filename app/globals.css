@@ -60,6 +60,7 @@ nav{
   height: 100%;
   display: flex;
   justify-content: space-around;
+  gap: 10px;
   align-items: center;
   
 }
@@ -80,6 +81,7 @@ nav{
 
 }
 .search input {
+  min-width: 100px;
   outline: none;
   border: none;
   border-left :solid 1px #668c3f;
@@ -88,6 +90,7 @@ nav{
   width: 120%;
   font-size: large;
   height: 100%;
+  margin-right: 30px;
   margin-left: 13px;
   border-radius: 15px;
   padding-left: 4px;
@@ -202,10 +205,12 @@ nav{
 .maincontent{
   /* margin-top: 70px; */
   /* background-color: aqua; */
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
+  height: fit-content;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 15px;
 }
 .mainarticle{
   width: 36%;
@@ -213,7 +218,8 @@ nav{
   /* background-color: #fff; */
 }
 .slidercontainer{
-  height: 75%;
+  height: 400px;
+  max-height: 75%;
   width: 50%;
   background-color: #fff;
 
@@ -307,13 +313,18 @@ p{
   cursor: pointer;
 }
 
+
+
+
 /* main content */
 /* categories */
 .categories{
   height: 270px;
+  max-height: 600%;
   background-color: #e6ffad;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   align-items: center;
   box-shadow: 0px 0px 3px 3px rgba(211, 195, 49, 0.397);
 }
@@ -321,8 +332,10 @@ p{
 
 
 .cat{
+  border: solid 2px rgba(46, 31, 0, 0.541);
+  flex-shrink: 0;
   height: 85%;
-  width: 16%;
+  width: 18%;
   overflow: hidden;
   border-radius: 12px;
   position: relative;
@@ -346,6 +359,7 @@ p{
 
 }
 .hovertitle p {
+  text-align: center;
   font-size: 45px;
   color: #00940c;
   text-shadow: 2px 2px 4px #00682b;
@@ -390,11 +404,12 @@ p{
 .show video{
 
   height: 100%;
+  border-radius: 15px;
 
 }
 
 .showp{
-  height: 70%;
+  min-height: 70%;
   width: 50%;
 
   display: flex;
@@ -499,7 +514,7 @@ p{
 }
 .t4c{
   width: 97%;
-  height: 90%;
+  height: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -521,7 +536,9 @@ p{
 .topic1, .topic2 ,.topic3,.topic4,.show{
   box-shadow: 0px 0px 1px 1px rgba(102, 89, 19, 0.534);
 }
-
+.t4c img {
+  height: 100%;
+}
 
 
 
@@ -529,7 +546,7 @@ p{
 
 .footer {
   position: relative;
-  z-index: 2;
+  z-index: 100;
   background-image: url('/photos/biegefooter.jpg');
   background-size: cover;
   color: #eee;
@@ -751,4 +768,91 @@ form .create{
 
 .sign input{
   margin-top: 10px;
+}
+
+
+@media (max-width:1200px){
+  .showp h3{
+    font-size: 40px;
+  }
+  .showp p {
+    font-size: 28px !important;
+  }
+}
+@media(max-width:950px){
+  .navl{
+    display: none;
+  }
+  .profile button{
+    width: 100%;
+  }
+  .probl{
+    display: none;
+  }
+    .showp{
+    display: none;
+  }
+    .show video{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width:700px){
+  .maincontent{
+    flex-direction: column;
+    align-items: center;
+
+
+
+  }
+
+  .mainarticle{
+    width: 75%;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .slidercontainer{
+    width: 75%;
+    margin-bottom: 30px;
+  }
+  .categories{
+    height: fit-content;
+    margin-bottom: 20px;
+  }
+  .cat{
+    margin-top: 15px;
+    height: 180px;
+    width: 30%;
+    margin-bottom: 15px;
+  }
+  .articles{
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(8,1fr);
+  height: 180vh;
+  }
+  .topic1{
+    grid-row: 5/6;
+    grid-column: 1/2;
+  }
+  .topic2{
+    grid-column: 1/2;
+    grid-row: 6/7;
+  }
+  .topic3{
+    grid-column: 2/3;
+    grid-row: 5/7;
+  }
+  .topic4{
+    grid-row: 7/9;
+    grid-column: 1/3;
+  }
+
+  .show{
+    /* height: 60vh; */
+    flex-direction: column;
+  }
+
 }

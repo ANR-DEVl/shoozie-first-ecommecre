@@ -3,6 +3,7 @@
 
 .mainproduct{
     height: calc(100vh - 70px);
+    min-height: fit-content;
     margin: 10px 35px;
     display: flex;
     justify-content: space-around;
@@ -84,6 +85,7 @@
 .bic img{
     width: 100%;
     height: 100%;
+
 }
 
 
@@ -342,6 +344,8 @@
 
 .productcard img{
     width: 97%;
+    min-height: 200px;
+    max-height: 300px;
     height: 60%;
     border-radius: 10px;
     border-radius: 12px;
@@ -400,3 +404,67 @@
     align-items: center;
 }
 
+
+
+
+
+@media (max-width:768px){
+    .productcard{
+        min-width: 40vw;
+    }
+    .mainproduct{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .propreties{
+        margin-top: 30px;
+        margin-bottom: 29px;
+        padding-left: 0;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .propreties h3{
+        text-align: center;
+    }
+    .disc{
+        width: 100%;
+    }
+    .opts{
+        width: fit-content;
+    }
+    .imgselector{
+        width: 94%;
+        height: 500px;
+    }
+    .switchcase{
+        height:500px;
+    }
+    .overview{
+        height: fit-content;
+    }
+
+}
+
+
+@media (max-width:400px){
+    .price{
+        font-size: 30px !important;
+    }
+    .similairflex{
+        justify-content: center;
+    }
+    .productcard{
+        width: 48%;
+        max-width: 49%;
+        min-width: 48%;
+    }
+}
+@media (max-width:350px) {
+    .productcard{
+        max-width: 88%;
+        min-width: 82%;
+        width:84%
+    }
+}
