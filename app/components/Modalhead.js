@@ -3,7 +3,7 @@
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 
-export default function Modalhead({type,closehandler}){
+export default function Modalhead({type,closehandler,signhandler}){
 
 
 
@@ -13,13 +13,13 @@ export default function Modalhead({type,closehandler}){
         <div className="modalblur" onClick={closehandler}>
             <div className="modal" onClick={(e) => e.stopPropagation()}>
                 <HighlightOffIcon onClick={closehandler} className='close'  />
-                {type =='sign'? <Sign/> : type == 'log' ? <Log/>: '' }
+                {type =='sign'? <Sign/> : type == 'log' ? <Log signhandler={signhandler}/>: '' }
             </div>
         </div>
     )
 }
 
-function Log (){
+function Log ({signhandler}){
 
 
 
@@ -33,7 +33,7 @@ function Log (){
                 <p>Do you forget your Password ? <span> Click Here</span></p>
                 </div>
                 <button type="button">Log in</button>
-                <div className='create'>you don't have an account ,<span>Create One</span></div>
+                <div className='create'>you don't have an account ,<span onClick={signhandler}>Create One</span></div>
             </form>
         </div>
     )
@@ -53,7 +53,7 @@ function Sign (){
                 <input type="password" placeholder='Enter your Password'  required/>
                 <input type="password" placeholder='Confirm your Password'  required/>
 
-                <button type="button">Create</button>
+                <button type="button" >Create</button>
             </form>
         </div>
     )

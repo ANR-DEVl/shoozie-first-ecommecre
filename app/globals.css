@@ -649,7 +649,8 @@ h2{
 .modal{
   position: fixed;
   width: 26%;
-  height: 70%;
+  max-height: 70%;
+
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
@@ -663,6 +664,7 @@ h2{
   background-color: #eedbb7;
   border:  solid 2px  #d4ae68;
   padding: 20px;
+  padding-bottom: 30px;
 
 }
 
@@ -737,6 +739,7 @@ h2{
 
 
 .log form button,.sign form button {
+  margin-bottom: 20px;
   width: 50%;
   font-size: 22px;
   padding: 10px;
@@ -755,6 +758,9 @@ h2{
 form .create{
   margin-top: auto;
   color: gray;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
 }
 .create span{
 
@@ -780,6 +786,9 @@ form .create{
   }
 }
 @media(max-width:950px){
+    .modal{
+    width: 70%;
+  }
   .navl{
     display: none;
   }
@@ -799,6 +808,9 @@ form .create{
 }
 
 @media (max-width:700px){
+  .modal{
+    width: 70%;
+  }
   .maincontent{
     flex-direction: column;
     align-items: center;

@@ -126,7 +126,7 @@ export default function Header(){
         </header>
         {catdisp?<Hcategories/>:''}
         
-        {showmodal?<Modalhead type={modaltype}  closehandler={closehandler}/>:''}
+        {showmodal?<Modalhead type={modaltype} signhandler={signhandler} closehandler={closehandler}/>:''}
         </div>
 
     )
