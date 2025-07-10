@@ -1,7 +1,7 @@
 
 @font-face {
   font-family: title;
-  src: url("/fonts/Dancing_script/static/DancingScript-Bold.ttf");
+  src: url("/fonts/Dancing_Script/static/DancingScript-Bold.ttf");
 }
 
 @font-face {
@@ -647,6 +647,7 @@ h2{
 }
 
 .modal{
+
   position: fixed;
   width: 26%;
   max-height: 70%;
@@ -680,6 +681,7 @@ h2{
 
 
 .log , .sign {
+
   margin-top: 40px;
   display: flex;
   align-items: center;
