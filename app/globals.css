@@ -21,7 +21,8 @@
 body{
   min-height: 100vh;
 
-  background-image: url("/photos/beige.jpg");
+  /* background-image: url("/photos/beige.jpg"); */
+  background-color: #F8E9D7;
   background-size: contain;
 }
 
@@ -37,6 +38,7 @@ body{
 }
 
 header{
+
   /* position: relative; */
   height: 70px;
   width: 100%;
@@ -53,7 +55,9 @@ header{
 
 
 .logo{
-  width:70px;
+  /* width:70px; */
+  margin-top: 4px;
+  width: 100px;
 }
 nav{
   width: 40%;
@@ -87,7 +91,7 @@ nav{
   border-left :solid 1px #668c3f;
   border-right: solid 1px #668c3f;
   background-color: rgba(0, 0, 0, 0);
-  width: 120%;
+  width: 100%;
   font-size: large;
   height: 100%;
   margin-right: 30px;
@@ -115,28 +119,55 @@ nav{
   display: flex;
   align-items: center;
 }
+
+
+
+
+
 .profile{
-  width: 10%;
-  height: 50%;
-  background-color: #8c6239;
+  width: 25%;
+  height: 60%;
+  /* background-color: #8c6239; */
   border-radius: 15px;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  align-items: center;
+
+
 }
 .profile button{
-  width: 50%;
+  width: 30%;
   height: 100%;
   border-style: none;
   color: aliceblue;
-
-
+  transition: all 200ms ease;
 }
 .profile button:hover{
   background-color: #96bb72;
   cursor: pointer;
 }
+.profile button:active{
+  transform: scale(0.8);
+}
 
-.probl{
+.cartLink{
+  margin-top: 5px;
+    color: #668c3f;
+    transition: all 200ms ease;
+    
+}
+.cartLink:hover{
+  color: #96bb72;
+  cursor: pointer;
+}
+.cartLink:active{
+  transform: scale(0.8);
+
+}
+
+/* .probl{
   font-size: 18px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -144,12 +175,15 @@ nav{
   border-right-style: solid !important;
   border-color: #3c5a1d79;
   
-}
+} */
 .probr{
   font-size: 18px;
+  min-width: 70px;
+  text-align: center;
 
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-radius: 15pc;
+
+
   background-color: #668c3f;
   
 }
@@ -259,10 +293,15 @@ p{
   background-color: #45c57a;
   padding: 3px 0;
   color: aliceblue;
+  transition: all 200ms ease;
 }
 .explore:hover{
   background-color: #65d895;
   cursor: pointer;
+}
+
+.explore:active{
+  transform: scale(0.9);
 }
 
 /* slider section */
@@ -813,15 +852,26 @@ form .create{
 }
 
 @media (max-width:700px){
+/* .logo{
+  display: none;
+} */
+
+
+header{
+  padding: 0 10px;
+}
+.search input {
+  display: none;
+
+}
+
+
   .modal{
     width: 70%;
   }
   .maincontent{
     flex-direction: column;
     align-items: center;
-
-
-
   }
 
   .mainarticle{

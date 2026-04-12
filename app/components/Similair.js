@@ -8,17 +8,26 @@ import Productcard from "./Productcard";
 
 export default function Similair({products}) {
 
-        const productList = products.map(product => (
-        <Productcard 
-            key={product.id} 
-            proId={product.id}
-            title={product.title} 
+        const productList = products.map(product => {
+
+
+            //for cart
+        const selectedSize =  product.size.filter((el)=>{
+                    return el.stock>0
+                    })[0].value || ''
+        
+        
+        return    (<Productcard 
+            key={product._id} 
+            proId={product._id}
+            title={product.name} 
             price={product.price} 
-            shortdisc={product.shortdisc} 
+            shortdisc={product.description} 
             rate={product.rate} 
-            img={product.img} 
-        />
-        ))
+            img={product.images} 
+            selectedSize={selectedSize}
+        />)
+})
 
 
 

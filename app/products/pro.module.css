@@ -18,7 +18,7 @@
     justify-content: space-between;
     width: 20%;
     height: 100%;
-    background-color: #f5e59e;
+    background-color: #f5eabe;
     /* padding: 20px; */
     color: white;
     box-shadow: 0 1px 5px 1px #756b3e;
@@ -120,7 +120,7 @@
   height: 60px;
   width: 100%;
   flex-shrink: 0;
-  background-color: #f5e59e;
+  background-color: #f5eabe;
   display: flex;
   justify-content: center;
   align-items: center;

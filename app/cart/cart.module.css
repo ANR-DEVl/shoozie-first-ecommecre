@@ -1,0 +1,281 @@
+
+
+.cartPage{
+    height: calc(100vh - 70px );
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+.cartItems{
+    width: 45%;
+    background-color: #eedbb7;
+    height: 90%;
+    border:  solid 2px  #d4ae68;
+    border-radius: 15px;
+    padding: 20px;
+
+
+}
+
+.cartItems h3{
+    font-size: 33px;
+    color: #00a545;
+}
+.brTitle{
+    background-color: #00a545;
+    width: calc(100% - 10px);
+    /* width: 90%; */
+    height: 1px;
+    margin-bottom: 15px;
+}
+
+
+.cartList{
+    width: 100%;
+    height: 80%;
+    /* margin: auto; */
+    overflow: auto;
+    padding-right: 5px; 
+    /* background-color: #fff; */
+    scrollbar-color: #00a545 transparent;
+}
+
+
+.itemContainer{
+
+    margin-bottom: 5px;
+    /* display: flex; */
+    /* justify-content: flex-start; */
+    /* gap: 20px; */
+    /* align-items: center; */
+
+    background-color: #fcf1da;
+    border-radius: 15px;
+    padding: 10px;
+    height: 140px;
+}
+
+.itemInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productInfo{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.itemInfo img{
+    width:90px;
+    height:90px;
+    border-radius: 15px;
+}
+
+.itemTitle h4{
+    color: #00a545;
+    font-size:23px;
+    font-weight:700;
+}
+
+
+
+.editingItem{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+}
+
+
+
+
+.quantityBtn{
+    display: inline-flex;
+    align-items: center;     
+    justify-content: center;
+    font-size: xx-large;
+    color: #00a545;
+    border-color: #00a545;
+    background-color: #fcf1da;
+    width:35px;
+    height: 30px;
+    border-radius: 5px;
+    border:solid 1px ;
+    margin-bottom: 16px;
+    outline: none;
+    box-shadow: none;
+}
+
+.quantityBtn:hover{
+    cursor: pointer;
+    border-width: 2px;
+}
+
+.qtyControl{
+    display: flex;
+    width: 90px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.deleteBtn{
+    transition: all 100ms ease;
+}
+
+.deleteBtn:hover{
+    cursor: pointer;
+
+}
+.deleteBtn:active{
+    transform: scale(0.8);
+
+}
+
+.sizeOptions{
+    margin-top: 5px;
+    display: flex;
+    gap: 16px;
+    font-size: larger;
+    font-weight: bold; 
+    flex-wrap: wrap;
+}
+
+.sizeOption{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+    border: solid 2px black;
+    width:37px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+
+}
+
+.sizeOption:hover{
+    cursor: pointer;
+}
+
+.selectedSize{
+    color: #00a545;
+    border-color: #00a545;
+    background-color: #fcf1da;
+}
+
+
+
+
+
+
+.shipingInfo{
+        width: 45%;
+    background-color: #eedbb7;
+    height: 90%;
+    border:  solid 2px  #d4ae68;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+
+.clientInput{
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #eedbb7;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border: none;
+    border-bottom: solid 1px #00a545;
+    font-size: 20px;
+    outline: none;
+}
+
+.clientSelect {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #eedbb7;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border: none;
+    border-bottom: solid 1px #00a545;
+    font-size: 20px;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+
+    /* إزالة الـ default arrow وتنسيقه */
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300a545' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+    padding-left: 5px;
+    color: #333;
+}
+
+.clientSelect:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom: solid 2px #00a545;
+}
+
+.clientSelect option {
+    background-color: #eedbb7;
+    color: #333;
+    font-size: 16px;
+}
+
+.agreeLabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.agreeCheckbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #00a545;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.actions button{
+    min-width:100px;
+    padding: 10px;
+    background-color: #19d367;
+    color: #fff;
+    border-radius: 4px;
+    border: solid 1px #19d367;
+    font-size: larger;
+    margin-top: 10px;
+    transition: all 200ms ease;
+
+
+}
+.actions button:hover{
+    background-color: #0fb658;
+    cursor: pointer;
+}
+.actions button:active{
+    transform: scale(0.8);
+}
+

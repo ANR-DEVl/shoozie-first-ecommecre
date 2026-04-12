@@ -1,9 +1,9 @@
 
-import Imageselector from "../../components/Imageselector"
-import Propreties from "../../components/Propreties"
-import Overview from "../../components/Overview"
-import Similair from "../../components/Similair"
-import { products } from "@/app/context/productsdata"
+// import Imageselector from "../../components/Imageselector"
+// import Propreties from "../../components/Propreties"
+// import Overview from "../../components/Overview"
+// import Similair from "../../components/Similair"
+// import { products } from "@/app/context/productsdata"
 import Postcontent from "./Postcontent"
 
 // import { products } from "@/app/context/productsdata"
@@ -33,12 +33,13 @@ export default async function Postpage(props) {
 
     
 
-    const postId = await props.params.postId
+    const params = await props.params;
+    const postId = params.postId;
 
 
     return (
         <div className="postpage">
-            <Postcontent postId={postId} products={products}/>
+            <Postcontent postId={postId} />
 
         </div>
     )

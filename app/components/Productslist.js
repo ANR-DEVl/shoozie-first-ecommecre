@@ -11,6 +11,11 @@ import styles from '../products/pro.module.css';
 export default function Productslist(props) {
 
 
+
+
+
+
+
     const filterselect = props.filterselect;
 
     const [products,setproducts] = useState([]);
@@ -18,9 +23,10 @@ export default function Productslist(props) {
     useEffect(()=>{
 
         async function fetchingdata() {
-            const res = await fetch('/api/products')
+            const res = await fetch('http://localhost:5000/api/products?limit=24&page=1')
             const data = await res.json()
-            setproducts(data)
+            const productsData = data.data.products
+            setproducts(productsData)
         }
         fetchingdata();
 
@@ -32,10 +38,14 @@ export default function Productslist(props) {
 
 
 
+
+
+
+
     const productList = products.map(product => {
 
 
-    const havetitle = filterselect.searchtxt ===''? true: product.title.toLowerCase().includes(filterselect.searchtxt) 
+    const havetitle = filterselect.searchtxt ===''? true: product.name.toLowerCase().includes(filterselect.searchtxt) 
 
     const havebrand =  filterselect.brand[0]=='all'? true:   filterselect.brand.some((e)=>{
         return product.brand.includes(e)
@@ -67,18 +77,24 @@ export default function Productslist(props) {
         }
     })
 
+//for cart
+        const selectedSize =  product.size.filter((el)=>{
+                    return el.stock>0
+                    })[0].value || ''
+
 
 
 
     if(havebrand&&havesize&&havecategories&&haveprice&&havetitle){
     return (<Productcard 
-        key={product.id} 
-        proId={product.id}
-        title={product.title} 
+        key={product._id} 
+        proId={product._id}
+        title={product.name} 
         price={product.price} 
-        shortdisc={product.shortdisc} 
+        shortdisc={product.description} 
         rate={product.rate} 
-        img={product.img} 
+        img={product.images} 
+        selectedSize={selectedSize}
     />)}else{
         return ''
     }
