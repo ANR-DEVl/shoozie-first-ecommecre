@@ -95,6 +95,7 @@ export default function Productslist(props) {
         rate={product.rate} 
         img={product.images} 
         selectedSize={selectedSize}
+        sizeArray={product.size}
     />)}else{
         return ''
     }

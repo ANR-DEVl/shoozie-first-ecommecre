@@ -16,7 +16,7 @@ import Image from "next/image";
 import { useCart } from "../context/cartContext";
 import OrderToast from "./OrderToast";
 
-export default function Productcard({title, price, shortdisc, rate, img,proId,selectedSize}) {
+export default function Productcard({title, price, shortdisc, rate, img,proId,selectedSize,sizeArray}) {
 
 
     const { cart, addToCart } = useCart();
@@ -26,7 +26,11 @@ export default function Productcard({title, price, shortdisc, rate, img,proId,se
         quantity: 1,
         orderedSize: selectedSize,
         cartId:`${proId}${selectedSize}`,
-        name:title
+        name:title,
+        price,
+        sizeArray,
+        img
+
     }
 
 

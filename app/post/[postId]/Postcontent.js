@@ -141,7 +141,7 @@ function toastHandler(mode){
             <div className={styles.mainproduct}>
 
                 <Imageselector img={product.images} sizeArray={product.size} sizeSwitch={sizeSwitch} selectedsize={selectedsize}/>
-                <Propreties toastHandler={toastHandler} buyHandler={buyHandler} title={product.name} sizeArray={product.size} rate={product.rate} price={product.price} disc={product.description} id={product._id} selectedSize={selectedsize}/>
+                <Propreties img={product.images} toastHandler={toastHandler} buyHandler={buyHandler} title={product.name} sizeArray={product.size} rate={product.rate} price={product.price} disc={product.description} id={product._id} selectedSize={selectedsize}/>
             </div>
             <Overview disc={product.description}  highlights={product.highlights}/>
             <div className={styles.mybr}></div>

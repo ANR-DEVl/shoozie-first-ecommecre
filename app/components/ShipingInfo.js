@@ -232,7 +232,8 @@ return (
 
                         <div className={styles.actions}>
                             <button onClick={clearCart}  ><RemoveShoppingCartIcon /></button>
-                            <button disabled={!agreed ||products.length===0} style={{ opacity: agreed &&products.length!==0 ? 1 : 0.5 }} onClick={handleConfirm} className={styles.primary}>Checkout</button>
+                            <button disabled={!agreed || products.length===0 || !clientData.fullName || !clientData.phone || !clientData.address.city || !clientData.address.commune} 
+                            style={{ opacity: agreed &&products.length !==0 && clientData.fullName && clientData.phone && clientData.address.city && clientData.address.commune ? 1 : 0.5 }} onClick={handleConfirm} className={styles.primary}>Checkout</button>
                         </div>
                     </div>
             </div>

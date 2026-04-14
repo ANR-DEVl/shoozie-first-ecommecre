@@ -36,7 +36,10 @@ export default function Propreties(props) {
         quantity: 1,
         orderedSize: selectedSize,
         cartId:`${props.id}${selectedSize}`,
-        name:props.title
+        name:props.title,
+        price:props.price,
+        sizeArray:props.sizeArray,
+        img:props.img
     }
 
 

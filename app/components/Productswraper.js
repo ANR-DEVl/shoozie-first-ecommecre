@@ -425,11 +425,11 @@ export default function Productswraper(){
 
 </div>
 
-<div className={styles.productslist}>
+
 
 <Productslist filterselect={filterselect}/>
 
-</div>
+
 </div>
 
 

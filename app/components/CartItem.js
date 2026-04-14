@@ -4,12 +4,15 @@ import styles from '../cart/cart.module.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
-import { useState,useEffect } from "react"
+import { useState,useEffect,useRef } from "react"
 
 
 export default function CartItem({item,removeFromCart,editCartSize,editCartQuantity}){
 
-    const [productItem,setProductItem] = useState(null);
+    const isFirstRender = useRef(true); 
+
+
+    // const [productItem,setProductItem] = useState(null);
 
     const [itemQuantity,setItemQuantity] = useState(item.quantity);
     const [selectedSize,setSelectedSize] = useState(item.orderedSize);
@@ -17,27 +20,31 @@ export default function CartItem({item,removeFromCart,editCartSize,editCartQuant
     const ItemId = item.cartId
 
     useEffect(()=>{
+        if (isFirstRender.current) return;
         editCartQuantity(ItemId,itemQuantity)
     },[itemQuantity])
 
-    useEffect(()=>{
-        editCartSize(ItemId,selectedSize)
-    },[selectedSize])
+// function handleQuantityPlus(value){
+//     setSelectedSize(value)
+//     editCartSize(ItemId,value)
 
-        useEffect(()=>{
-            let isMounted = true;
-            async function fetchingdata() {
-                const res = await fetch(`http://localhost:5000/api/products/${item.productId}`)
-                const data = await res.json()
-                const productData = data.data.product
-                console.log(productData)
-                setProductItem(productData)
-            }
-            fetchingdata();
-            return () => { isMounted = false }
-    
-        },[])
+// }
 
+
+
+
+
+
+    // useEffect(()=>{
+    //     if (isFirstRender.current) return;
+    // },[selectedSize])
+
+
+function handleSizeChanging(value){
+    setSelectedSize(value)
+    editCartSize(ItemId,value)
+
+}
 
 
 
@@ -49,9 +56,12 @@ export default function CartItem({item,removeFromCart,editCartSize,editCartQuant
         //quantity limitation
 
 useEffect(()=>{
-            if (!productItem) return ;
+            // if (!productItem) return ;
+        if (isFirstRender.current) {
 
-    const selectedStockObject = productItem.size.find((el)=>{
+            return;}
+
+    const selectedStockObject = item.sizeArray.find((el)=>{
         return selectedSize===el.value
     })
 
@@ -62,16 +72,31 @@ useEffect(()=>{
 
 },[itemQuantity,selectedSize])
 
-        if (!productItem) return <div>Loading...</div>
+
+
+    useEffect(() => {
+    isFirstRender.current = false; // ✅ هنا بس في useEffect منفصل
+}, [])
+
+
+
+
+
+
+
+
+
+
+
 
     return(
         <div className={styles.itemContainer}>
             <div className={styles.itemInfo} >
                 <div className={styles.productInfo} >
-                <img src={`/photos/${productItem.images[0]}.jpg`} alt="pro img" />
+                <img src={`/photos/${item.img[0]}.jpg`} alt="pro img" />
                 <div className={styles.itemTitle}>
-                    <h4>{productItem.name}</h4>
-                    <p style={{fontSize:'20px'}}>{productItem.price}</p>
+                    <h4>{item.name}</h4>
+                    <p style={{fontSize:'20px'}}>{item.price}</p>
                 </div>
                 </div>
 
@@ -88,13 +113,13 @@ useEffect(()=>{
 
 
             <div className={styles.sizeOptions}>
-                {productItem.size.map((s) =>{
+                {item.sizeArray.map((s) =>{
                     if(s.stock>0){                                    
                         return (
                             <div
                                 key={s.value}
                                 className={`${styles.sizeOption} ${s.value === selectedSize ? styles.selectedSize : ''}`}
-                                onClick={() => setSelectedSize(s.value)}>
+                                onClick={()=>{handleSizeChanging(s.value)} }>
                                     {s.value}
                             </div>
                         )}

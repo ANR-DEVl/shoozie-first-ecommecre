@@ -1,6 +1,7 @@
 import styles from "../post/mainproduct.module.css";
 
 import StarIcon from '@mui/icons-material/Star';
+import styles2 from "../products/pro.module.css"
 
 
 import Productcard from "./Productcard";
@@ -26,6 +27,8 @@ export default function Similair({products}) {
             rate={product.rate} 
             img={product.images} 
             selectedSize={selectedSize}
+            sizeArray={product.size}
+
         />)
 })
 
@@ -37,7 +40,7 @@ export default function Similair({products}) {
             <h3>Related Products</h3>
             <hr />
             <div className={styles.simicontainer}> 
-                            <div className={styles.similairflex}>
+                            <div className={styles2.productslist}>
                                 {productList}
             </div>
             </div>
