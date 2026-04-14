@@ -12,6 +12,8 @@ import destination from '../../public/data/Commune_Of_Algeria.json'
 
 
 export default function BuyModal(props) {
+    const API = process.env.NEXT_PUBLIC_API_URL;
+
     
 
     const {id,name,price,mainImg,sizeArray,onClose,toastHandler} = props
@@ -60,7 +62,7 @@ export default function BuyModal(props) {
 
         //api post req
 
-        const res = await fetch('http://localhost:5000/api/orders',
+        const res = await fetch(`${API}/api/orders`,
             {
                 method:'POST',
                 headers: { 'Content-Type': 'application/json' },

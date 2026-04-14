@@ -16,6 +16,8 @@ import OrderToast from "./OrderToast";
 
 
 export default function ShipingInfo({cart,clearCart}){
+    const API = process.env.NEXT_PUBLIC_API_URL;
+
 
 
         const [orderToastStatus,setOrderToastStatus] = useState(false)
@@ -150,7 +152,7 @@ useEffect(()=>{
 
         //api post req
 
-        const res = await fetch('http://localhost:5000/api/orders',
+        const res = await fetch(`${API}/api/orders`,
             {
                 method:'POST',
                 headers: { 'Content-Type': 'application/json' },

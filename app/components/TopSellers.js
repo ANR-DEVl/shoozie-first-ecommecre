@@ -21,7 +21,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 const topSellers = [
     { id: '1', name: 'Nike Air Max 270', price: 350, img: 'nikeair1', rate: 4 },
     { id: '2', name: 'Elara Heel', price: 699, img: 'talon3', rate: 4 },
-    { id: '3', name: 'Oxford Elite', price: 200, img: 'classicBlack1', rate: 5 },
+    { id: '3', name: 'Oxford Elite', price: 200, img: 'classicblack1', rate: 5 },
     { id: '4', name: 'Bloom classy', price: 135, img: 'leatherParty1', rate: 4 },
     { id: '5', name: 'High Blacky', price: 469, img: 'highBlack1', rate: 4 },
     { id: '6', name: 'Urban Stride', price: 280, img: 'puma1', rate: 3 },

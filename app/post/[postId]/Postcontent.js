@@ -18,6 +18,7 @@ import styles from "../mainproduct.module.css"
 
 
 export default function Postcontent({postId}) {
+    const API = process.env.NEXT_PUBLIC_API_URL;
 
 
     const [product,setproduct] = useState(null);
@@ -63,7 +64,7 @@ function toastHandler(mode){
 
         useEffect(()=>{
             async function fetchingdata() {
-                const res = await fetch(`http://localhost:5000/api/products/${postId}`)
+                const res = await fetch(`${API}/api/products/${postId}`)
                 const data = await res.json()
                 const productData = data.data.product
                 console.log(productData)
@@ -105,7 +106,7 @@ function toastHandler(mode){
     useEffect(()=>{
 
         async function fetchingdata() {
-            const res = await fetch('http://localhost:5000/api/products?limit=24&page=1')
+            const res = await fetch(`${API}/api/products?limit=24&page=1`)
             const data = await res.json()
             const productsData = data.data.products
             // console.log(productsData)

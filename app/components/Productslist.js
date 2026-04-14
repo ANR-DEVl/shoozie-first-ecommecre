@@ -10,6 +10,7 @@ import styles from '../products/pro.module.css';
 
 export default function Productslist(props) {
 
+    const API = process.env.NEXT_PUBLIC_API_URL;
 
 
 
@@ -23,8 +24,8 @@ export default function Productslist(props) {
     useEffect(()=>{
 
         async function fetchingdata() {
-            const res = await fetch('http://localhost:5000/api/products?limit=24&page=1')
-            const data = await res.json()
+            const res = await fetch(`${API}/api/products?limit=24&page=1`);
+            const data = await res.json();
             const productsData = data.data.products
             setproducts(productsData)
         }
