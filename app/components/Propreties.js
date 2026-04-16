@@ -142,6 +142,27 @@ const buyHandler = props.buyHandler;
 
 
 
+            <div className={styles.fixedBuyCase}>
+                                <Button 
+                    onClick={buyHandler}
+                    className={styles.btnClick}
+                    sx={{
+                        width:'90%',
+                        padding: '10px',
+                        backgroundColor: '#19d367',
+                        color: '#fff',
+                        borderRadius: '4px',
+                        '&:hover': {
+                        backgroundColor: '#0fb658'
+                        }
+                        }}
+                        >
+                        Buy Now
+                        </Button>
+            </div>
+
+
+
         </div>
     )
 }

@@ -18,14 +18,14 @@ export default function CategoriesSection(){
     const catsElements =cats.map((el)=>{
 
         return(
-            <div className="homeCat" key={el.name}>
+            <Link style={{textDecoration:'none'}} href={'/products'} className="homeCat" key={el.name}>
                 <div className="catIcon">{el.ico}</div>
                 <div className="catInfo">
                     <h4>{el.name}</h4>
                     <p>{el.count} products</p>
                 </div>
                 
-            </div>
+            </Link>
         )
     })
 

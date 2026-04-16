@@ -5,18 +5,41 @@ import Link from 'next/link'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 
-const topSellers = [
-    { id: '1', name: 'Bloom classy', price: 180, img: 'classicBlack2', rate: 4 },
-    { id: '2', name: 'High Blacky', price: 220, img: 'leatherParty2', rate: 4 },
-    { id: '3', name: 'Oxford Elite', price: 300, img: 'adidas3', rate: 5 },
-    { id: '4', name: 'Nike Air Max 270', price: 145, img: 'talon1', rate: 4 },
-    { id: '5', name: 'Elara Heel', price: 90, img: 'puma2', rate: 4 },
-    { id: '6', name: 'Urban Stride', price: 134, img: 'adidas1', rate: 3 },
-    { id: '7', name: 'Ironridge Boot', price: 250, img: 'nova3', rate: 5 },
-    { id: '8', name: 'Elara Heel', price: 900, img: 'highBlack2', rate: 4 },
-]
+
+import { useState,useEffect } from 'react'
+
 
 export default function TopSellers() {
+
+
+
+    const API = process.env.NEXT_PUBLIC_API_URL;
+
+
+        const [topSellers,setTopSellers] = useState([]);
+
+    useEffect(()=>{
+
+        async function fetchingdata() {
+            const res = await fetch(`${API}/api/products?limit=24&page=1`)
+            const data = await res.json()
+            const productsData = data.data.products
+            // console.log(productsData)
+            setTopSellers(productsData)
+        }
+        fetchingdata();
+
+    },[])
+
+    if (!topSellers){
+        return(<>....loading</>)
+    }
+
+
+
+
+
+
 
     const scrollRef = useRef(null)
 
@@ -43,12 +66,12 @@ export default function TopSellers() {
                 <div className="tape" ref={scrollRef}>
                     {topSellers.map((product) => (
                         <Link
-                            key={product.id}
-                            href={`/post/${product.id}`}
+                            key={product._id}
+                            href={`/post/${product._id}`}
                             className="tapeCard"
                         >
                             <img
-                                src={`/photos/${product.img}.jpg`}
+                                src={`/photos/${product.images[2]}.jpg`}
                                 alt={product.name}
                                 className="tapeImg"
                             />

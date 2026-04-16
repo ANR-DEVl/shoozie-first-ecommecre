@@ -15,7 +15,7 @@ export default function OrderToast({status , mode}){
 
     return (
         <div className={`${styles.toast} ${!status ? styles.hiddenToast : ''}`} >
-            {mode==='buy'?<CheckCircleIcon className={styles.successIcon} fontSize="large" /> 
+            {mode==='buy'?<CheckCircleIcon className={styles.successIcon} fontSize="large"  /> 
             : mode==='cart'? <AddShoppingCartIcon className={styles.successIcon} fontSize="large"/> :''
             }
             

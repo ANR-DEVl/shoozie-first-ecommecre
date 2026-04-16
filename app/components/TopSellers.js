@@ -1,35 +1,56 @@
-
-
-
-// export default function TopSellers() {
-//     return (
-//         <div className="topSellers">
-
-//         </div>
-//     )
-// }
-
-
-// components/TopSellers.js
 'use client'
+
+import { useState,useEffect } from 'react'
+
+
+
+
 
 import { useRef } from 'react'
 import Link from 'next/link'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 
-const topSellers = [
-    { id: '1', name: 'Nike Air Max 270', price: 350, img: 'nikeair1', rate: 4 },
-    { id: '2', name: 'Elara Heel', price: 699, img: 'talon3', rate: 4 },
-    { id: '3', name: 'Oxford Elite', price: 200, img: 'classicblack1', rate: 5 },
-    { id: '4', name: 'Bloom classy', price: 135, img: 'leatherParty1', rate: 4 },
-    { id: '5', name: 'High Blacky', price: 469, img: 'highBlack1', rate: 4 },
-    { id: '6', name: 'Urban Stride', price: 280, img: 'puma1', rate: 3 },
-    { id: '7', name: 'Ironridge Boot', price: 320, img: 'nova1', rate: 5 },
-    { id: '8', name: 'Soft Step', price: 90, img: 'adidas1', rate: 4 },
-]
+// const topSellers = [
+//     { id: '1', name: 'Nike Air Max 270', price: 350, img: 'nikeair1', rate: 4 },
+//     { id: '2', name: 'Elara Heel', price: 699, img: 'talon3', rate: 4 },
+//     { id: '3', name: 'Oxford Elite', price: 200, img: 'classicblack1', rate: 5 },
+//     { id: '4', name: 'Bloom classy', price: 135, img: 'leatherParty1', rate: 4 },
+//     { id: '5', name: 'High Blacky', price: 469, img: 'highBlack1', rate: 4 },
+//     { id: '6', name: 'Urban Stride', price: 280, img: 'puma1', rate: 3 },
+//     { id: '7', name: 'Ironridge Boot', price: 320, img: 'nova1', rate: 5 },
+//     { id: '8', name: 'Soft Step', price: 90, img: 'adidas1', rate: 4 },
+// ]
+
+
+
+
 
 export default function TopSellers() {
+    const API = process.env.NEXT_PUBLIC_API_URL;
+
+
+        const [topSellers,setTopSellers] = useState([]);
+
+    useEffect(()=>{
+
+        async function fetchingdata() {
+            const res = await fetch(`${API}/api/products?limit=24&page=1`)
+            const data = await res.json()
+            const productsData = data.data.products
+            // console.log(productsData)
+            setTopSellers(productsData)
+        }
+        fetchingdata();
+
+    },[])
+
+    if (!topSellers){
+        return(<>....loading</>)
+    }
+
+
+
 
     const scrollRef = useRef(null)
 
@@ -56,12 +77,12 @@ export default function TopSellers() {
                 <div className="tape" ref={scrollRef}>
                     {topSellers.map((product) => (
                         <Link
-                            key={product.id}
-                            href={`/post/${product.id}`}
+                            key={product._id}
+                            href={`/post/${product._id}`}
                             className="tapeCard"
                         >
                             <img
-                                src={`/photos/${product.img}.jpg`}
+                                src={`/photos/${product.images[1]}.jpg`}
                                 alt={product.name}
                                 className="tapeImg"
                             />

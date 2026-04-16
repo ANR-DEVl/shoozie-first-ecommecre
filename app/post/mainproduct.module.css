@@ -485,7 +485,7 @@
     }
     .imgselector{
         width: 94%;
-        height: 500px;
+        height: 400px;
     }
     .switchcase{
         height:500px;
@@ -498,7 +498,7 @@
 @media (max-width:480px){
         .imgselector{
         width: 94%;
-        height: 400px;
+        height: 380px;
     }
         .productcard{
         /* min-width: 42vw; */
@@ -807,7 +807,7 @@
 
 .successIcon{
     color:aliceblue;
-    font-size: 100px;
+    
 }
 
 
@@ -826,10 +826,27 @@
     transform: scale(0.9);
 }
 
+.fixedBuyCase{
+    display: none;
+    position: fixed;
+    bottom: -1;
+    height: 60px;
+    width: 100vw;
+    background-color: #eedbb7;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px -1px 3px #927844;
+    z-index: 999999;
+}
+
 
 @media(max-width:768px){
     .buyModal{
         width: 75%;
+    }
+    .fixedBuyCase{
+    display: flex;
+
     }
     
 }

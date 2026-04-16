@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import SearchIcon from '@mui/icons-material/Search';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MobileMenu from "./MobileMenu";
 
 import Hcategories from './Hcategories';
 import Modalhead from './Modalhead';
@@ -14,7 +15,7 @@ import Modalhead from './Modalhead';
 
 export default function Header(){
 
-
+const [open, setOpen] = useState(false)
 
     const router = useRouter()
 
@@ -97,6 +98,8 @@ export default function Header(){
     return(
         <div onMouseOut={hidecats} onMouseOver={keepshowcats} style={{opacity:headerfix=='fixedheader'?'1':'0',display:headisp,zIndex:'9',transition:'all 0.5s ease'}} className={headerfix}>
                 <header className="fixedheader" >
+                    <MobileMenu/>
+
             <div className="logo">
                 <img className="logo" src="/photos/greenLogo.png" alt="dddd" />
             </div>
@@ -128,6 +131,8 @@ export default function Header(){
                 <button className="probr" onClick={loghandler}>log in</button>
 
             </div>
+
+
 
         </header>
         {catdisp?<Hcategories/>:''}

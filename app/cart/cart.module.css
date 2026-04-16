@@ -13,7 +13,7 @@
 .cartItems{
     width: 45%;
     background-color: #eedbb7;
-    height: 90%;
+    height: 95%;
     border:  solid 2px  #d4ae68;
     border-radius: 15px;
     padding: 20px;
@@ -177,7 +177,7 @@
 .shipingInfo{
         width: 45%;
     background-color: #eedbb7;
-    height: 90%;
+    height: 95%;
     border:  solid 2px  #d4ae68;
     border-radius: 15px;
     padding: 20px;
@@ -296,6 +296,7 @@
     }
     .cartItems{
         padding: 1px ;
+        margin-top: 20px;
     }
     .itemContainer{
     height: auto;
@@ -321,6 +322,6 @@
 }
 .totalCase{
     color: #00a545;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 700;
 }
