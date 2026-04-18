@@ -11,16 +11,20 @@ import MobileMenu from "./MobileMenu";
 
 import Hcategories from './Hcategories';
 import Modalhead from './Modalhead';
-
+import { usePathname } from "next/navigation";
 
 export default function Header(){
+    const pathname = usePathname();
+
+    const hideSearchbar = pathname === "/products";
+    
 
 const [open, setOpen] = useState(false)
 
     const router = useRouter()
 
 
-    const [homesearch,sethomesearch] = useState()
+    const [homesearch,sethomesearch] = useState('')
 
     const [showmodal,setshowmodal] = useState(false);
     const [modaltype,setmodaltype] = useState('');
@@ -104,7 +108,7 @@ const [open, setOpen] = useState(false)
                 <img className="logo" src="/photos/greenLogo.png" alt="dddd" />
             </div>
             <nav>
-                <div className="search">
+                {!hideSearchbar ?<div className="search">
                     <SearchIcon className='searchicon' onClick={handleiconsearching}  sx={{ 
                         bgcolor: '#19d367',         
                         color: '#fff',               
@@ -115,9 +119,11 @@ const [open, setOpen] = useState(false)
                             }
                         }}  style={{color:'white',backgroundColor:'#668c3f',width:"35px",height:'35px',borderRadius:'8px'}}/>
                     <input type="text" onKeyDown={handlesearching} onChange={handlehaomesearch}/>
-                </div>
+                </div> :''}
                 <Link className="navl" href={'/'}>Home</Link>
                 <div  onClick={showcats} className="navl cats"  href={'/post'}>Categories <ExpandMoreIcon /></div>
+                <Link className="navl" href={'/about'}>About</Link>
+
                 
 
             </nav>

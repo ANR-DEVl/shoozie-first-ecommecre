@@ -2,7 +2,7 @@
 
 import styles from '../cart/cart.module.css'
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import Link from 'next/link'
 
 import { useState,useEffect,useRef } from "react"
 
@@ -92,13 +92,13 @@ useEffect(()=>{
     return(
         <div className={styles.itemContainer}>
             <div className={styles.itemInfo} >
-                <div className={styles.productInfo} >
+                <Link href={`/post/${item.productId}`} className={styles.productInfo} >
                 <img src={`/photos/${item.img[0]}.jpg`} alt="pro img" />
                 <div className={styles.itemTitle}>
                     <h4>{item.name}</h4>
-                    <p style={{fontSize:'20px'}}>{item.price}</p>
+                    <p style={{fontSize:'20px'}}>{item.price}$</p>
                 </div>
-                </div>
+                </Link>
 
                 <div className={styles.editingItem}>
                     <div  className={styles.qtyControl}>

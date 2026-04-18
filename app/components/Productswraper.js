@@ -20,7 +20,7 @@ export default function Productswraper(){
 
   const searchparams = useSearchParams()
 
-  const homesearch = searchparams.get('homesearch')??'';
+  const homesearch = searchparams.get('homesearch')||'';
 
   const mysizes = ['s37','s38','39','s40','s41','s42'];
 

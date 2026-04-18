@@ -795,6 +795,7 @@
 
     transition: all 0.2s ease ;
     overflow: hidden;
+    z-index: 99999999999;
 }
 
 .toast span{
@@ -847,6 +848,9 @@
     .fixedBuyCase{
     display: flex;
 
+    }
+    .toast{
+        left: 10px;
     }
     
 }

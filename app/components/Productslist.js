@@ -24,7 +24,7 @@ export default function Productslist(props) {
     useEffect(()=>{
 
         async function fetchingdata() {
-            const res = await fetch(`${API}/api/products?limit=24&page=1`);
+            const res = await fetch(`${API}/api/products?limit=24&page=1&search=${filterselect.searchtxt}`);
             const data = await res.json();
             const productsData = data.data.products
             setproducts(productsData)
