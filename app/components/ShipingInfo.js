@@ -12,11 +12,14 @@ import styles from '../cart/cart.module.css'
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 
 import OrderToast from "./OrderToast";
+import { useRouter } from 'next/navigation'
 
 
 
 export default function ShipingInfo({cart,clearCart}){
     const API = process.env.NEXT_PUBLIC_API_URL;
+
+    const router = useRouter()
 
 
 
@@ -164,6 +167,7 @@ useEffect(()=>{
         if (data.status === 'success') {
             toastHandler('buy') 
             clearCart()
+            router.push(`/order-success?orderId=${data.data.newOrder._id}&name=${clientData.fullName}&total=${data.data.newOrder.orderData.total}&city=${clientData.address.city}&commune=${clientData.address.commune}&items=${cart.length}`)
 }
 
 
