@@ -25,6 +25,24 @@ export const metadata = {
     keywords :['shoozie','shoes','adidas','nike','converce','puma','shoe store','buy online','e-commerce','reebok','classic','boots','style','fashion','feet','sport shoes','buy shoes','shoes brands','women shoe','winter boots','casual'],
     icons: {
   icon: "/favicon.ico",
+
+      // ✅ ضيف دول
+    openGraph: {
+        title: 'Shoozie - Your Shoe Store',
+        description: 'Discover premium shoes for every occasion',
+        url: 'https://shoozie-store-ecommecre-pj67.vercel.app',
+        siteName: 'Shoozie',
+        type: 'website',
+    },
+
+    // ✅ للـ robots
+    robots: {
+        index: true,
+        follow: true,
+    },
+
+    // ✅ الـ canonical URL
+    metadataBase: new URL('https://shoozie-store-ecommecre-pj67.vercel.app'),
 }
 
 

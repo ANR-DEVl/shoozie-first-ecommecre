@@ -9,11 +9,15 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 import destination from '../../public/data/Commune_Of_Algeria.json'
 
+import { useRouter } from 'next/navigation'
+
+
 
 
 export default function BuyModal(props) {
     const API = process.env.NEXT_PUBLIC_API_URL;
 
+    const router = useRouter()
     
 
     const {id,name,price,mainImg,sizeArray,onClose,toastHandler} = props
@@ -69,6 +73,9 @@ export default function BuyModal(props) {
                 body:JSON.stringify(order)
         }).then(toastHandler('buy'))
         const data = await res.json()
+                if (data.status === 'success') {
+            router.push(`/order-success?orderId=${data.data.newOrder._id}&name=${clientData.fullName}&total=${data.data.newOrder.orderData.total}&city=${clientData.address.city}&commune=${clientData.address.commune}&items=${1}`)
+}
 
 
         console.log(`order setup :::` ,order);
