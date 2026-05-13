@@ -27,7 +27,6 @@ export default function CartItem({item,removeFromCart,editCartSize,editCartQuant
 // function handleQuantityPlus(value){
 //     setSelectedSize(value)
 //     editCartSize(ItemId,value)
-
 // }
 
 

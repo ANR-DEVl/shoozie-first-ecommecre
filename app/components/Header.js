@@ -8,16 +8,23 @@ import SearchIcon from '@mui/icons-material/Search';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MobileMenu from "./MobileMenu";
+import PersonIcon from '@mui/icons-material/Person'
+import LogoutIcon from '@mui/icons-material/Logout'
+import DashboardIcon from '@mui/icons-material/Dashboard'
 
 import Hcategories from './Hcategories';
 import Modalhead from './Modalhead';
 import { usePathname } from "next/navigation";
+
+import { useAuth } from '../context/authContext'
 
 export default function Header(){
     const pathname = usePathname();
 
     const hideSearchbar = pathname === "/products";
     
+    const { user, logout } = useAuth()
+
 
 const [open, setOpen] = useState(false)
 
@@ -25,6 +32,7 @@ const [open, setOpen] = useState(false)
 
 
     const [homesearch,sethomesearch] = useState('')
+    const [showUserMenu, setShowUserMenu] = useState(false)
 
     const [showmodal,setshowmodal] = useState(false);
     const [modaltype,setmodaltype] = useState('');
@@ -124,6 +132,8 @@ const [open, setOpen] = useState(false)
                 <div  onClick={showcats} className="navl cats"  href={'/post'}>Categories <ExpandMoreIcon /></div>
                 <Link className="navl" href={'/about'}>About</Link>
 
+
+
                 
 
             </nav>
@@ -134,7 +144,28 @@ const [open, setOpen] = useState(false)
                 </Link>
 
 
-                <button className="probr" onClick={loghandler}>log in</button>
+                    {user ? (
+        <div className="userMenu" onClick={() => setShowUserMenu(!showUserMenu)}>
+            <PersonIcon className="userIcon" fontSize="large" style={{ color: '#668c3f', cursor: 'pointer' }} />
+            
+            {showUserMenu && (
+                <div className="userDropdown" onClick={(e) => e.stopPropagation()}>
+                    <p className="userName">{user.fullName}</p>
+                    <hr />
+                    {user.role === 'admin' && (
+                        <Link href="/dashboard" className="dropItem" onClick={() => setShowUserMenu(false)}>
+                            <DashboardIcon fontSize="small" /> Dashboard
+                        </Link>
+                    )}
+                    <div className="dropItem" onClick={() => { logout(); setShowUserMenu(false) }}>
+                        <LogoutIcon fontSize="small" /> Logout
+                    </div>
+                </div>
+            )}
+        </div>
+    ) : (
+        <button className="probr" onClick={loghandler}>Log in</button>
+    )}
 
             </div>
 

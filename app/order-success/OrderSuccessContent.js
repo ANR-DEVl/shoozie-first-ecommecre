@@ -14,7 +14,7 @@ export default function OrderSuccessPage() {
     const searchParams = useSearchParams()
     const orderId = searchParams.get('orderId').slice(0,6)
     const name = searchParams.get('name')
-    const total = searchParams.get('total')
+    let total = Number(searchParams.get('total')).toFixed(2)
     const city = searchParams.get('city')
     const commune = searchParams.get('commune')
     const items = searchParams.get('items')

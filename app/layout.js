@@ -5,6 +5,8 @@ import Myfooter from "./components/Myfooter";
 import Header from "./components/Header";
 
 import { CartProvider } from './context/cartContext';
+import { AuthProvider } from './context/authContext'
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +28,8 @@ export const metadata = {
     icons: {
   icon: "/favicon.ico",
 
-      // ✅ ضيف دول
-    openGraph: {
+
+}   , openGraph: {
         title: 'Shoozie - Your Shoe Store',
         description: 'Discover premium shoes for every occasion',
         url: 'https://shoozie-store-ecommecre-pj67.vercel.app',
@@ -43,7 +45,6 @@ export const metadata = {
 
     // ✅ الـ canonical URL
     metadataBase: new URL('https://shoozie-store-ecommecre-pj67.vercel.app'),
-}
 
 
 };
@@ -57,12 +58,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-
+        <AuthProvider>
                   <Header/>
         <div style={{height:'70px'}}></div>
-        <CartProvider>
-          {children}
-        </CartProvider>
+
+          <CartProvider>
+            {children}
+          </CartProvider>
+        </AuthProvider>
+
         
         <Myfooter/>
 
