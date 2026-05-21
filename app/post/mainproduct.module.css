@@ -830,7 +830,7 @@
 .fixedBuyCase{
     display: none;
     position: fixed;
-    bottom: -1;
+    bottom: 0;
     height: 60px;
     width: 100vw;
     background-color: #eedbb7;

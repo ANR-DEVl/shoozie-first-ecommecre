@@ -37,13 +37,13 @@ export const metadata = {
         type: 'website',
     },
 
-    // ✅ للـ robots
+
     robots: {
         index: true,
         follow: true,
     },
 
-    // ✅ الـ canonical URL
+
     metadataBase: new URL('https://shoozie-store-ecommecre-pj67.vercel.app'),
 
 
